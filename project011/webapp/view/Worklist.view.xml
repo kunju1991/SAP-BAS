@@ -1,0 +1,119 @@
+<mvc:View
+    controllerName="project011.controller.Worklist"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:semantic="sap.f.semantic">
+
+    <semantic:SemanticPage
+        id="page"
+        headerPinnable="false"
+        toggleHeaderOnTitleClick="false">
+
+        <semantic:titleHeading>
+            <Title id="_IDGenTitle1"
+                text="{i18n>worklistTitle}"
+                level="H2"/>
+        </semantic:titleHeading>
+
+        <semantic:content>
+            <Table
+                id="table"
+                width="auto"
+                items="{
+                    path: '/Employees',
+                    sorter: {
+                        path: 'EmployeeID',
+                        descending: false
+                    }
+                }"
+                noDataText="{worklistView>/tableNoDataText}"
+                busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+                growing="true"
+                growingScrollToLoad="true"
+                updateFinished=".onUpdateFinished">
+
+                <headerToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbar1">
+                        <Title
+                            id="tableHeader"
+                            text="{worklistView>/worklistTableTitle}"
+                            level="H3"/>
+                        <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                        <Button id="_IDGenButton1" icon="sap-icon://action-settings" press="onPersoButtonPressed" >
+                        <layoutData>
+                            <OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData2" priority="NeverOverflow" />
+                        </layoutData>
+				</Button>
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column id="Column01">
+                        <Text text="Employee ID" id="ID01"/>
+                    </Column>
+                    <Column id="Column02">
+                        <Text text="FirstName" id="ID02"/>
+                    </Column>
+                    <Column id="Column03">
+                        <Text text="LastName" id="ID03"/>
+                    </Column>
+                    <Column id="Column04">
+                        <Text text="Address" id="ID04"/>
+                    </Column>
+                    <Column id="Column05">
+                        <Text text="Region" id="ID05"/>
+                    </Column>              
+                    <Column id="Column06">
+                        <Text text="City" id="ID06"/>
+                    </Column>
+                    <Column id="Column07">
+                        <Text text="Title" id="ID07"/>
+                    </Column>                    
+                    <Column id="Column08">
+                        <Text text="Home Phone" id="ID08"/>
+                    </Column>                    
+                    <Column id="Column09">
+                        <Text text="Title of Courtesy" id="ID09"/>
+                    </Column>                    
+                    <Column id="Column10">
+                        <Text text="Extension" id="ID10"/>
+                    </Column>                    
+                    <Column id="Column11">
+                        <Text text="Postal Code" id="ID11"/>
+                    </Column>                    
+                    <Column id="Column12">
+                        <Text text="Country" id="ID12"/>
+                    </Column>               
+                </columns>
+
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem1"
+                        type="Navigation"
+                        press=".onPress">
+                        <cells>
+                            <ObjectIdentifier id="_IDGenObjectIdentifier1"
+                                title="{EmployeeID}"/>
+                            <Text id="_IDGenText1" text="{FirstName}"/>
+                            <Text id="_IDGenText2" text="{LastName}"/>
+                            <Text id="_IDGenText3" text="{Address}"/>
+                            <Text id="_IDGenText4" text="{Region}"/>
+                            <Text id="_IDGenText5" text="{City}"/>
+                            <Text id="_IDGenText6" text="{Title}"/>
+                            <Text id="_IDGenText7" text="{HomePhone}"/>
+                            <Text id="_IDGenText8" text="{TitleOfCourtesy}"/>
+                            <Text id="_IDGenText9" text="{Extension}"/>
+                            <Text id="_IDGenText10" text="{PostalCode}"/>
+                            <Text id="_IDGenText11" text="{Country}"/>                            
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </semantic:content>
+
+        <semantic:sendEmailAction>
+            <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+        </semantic:sendEmailAction>
+
+    </semantic:SemanticPage>
+
+</mvc:View>
