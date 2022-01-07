@@ -25,7 +25,7 @@ sap.ui.define([
                 tableNoDataText : this.getResourceBundle().getText("tableNoDataText")
             });
             this.setModel(oViewModel, "worklistView");
-            // init and activate controller
+            // init and activate Table Personalization Control
 			this._oTPC = new TablePersoController({
 				table: this.byId("table"),
 				//specify the first part of persistence ids e.g. 'demoApp-productsTable-dimensionsCol'

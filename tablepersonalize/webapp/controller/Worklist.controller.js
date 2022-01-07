@@ -3,8 +3,10 @@ sap.ui.define([
     "sap/ui/model/json/JSONModel",
     "../model/formatter",
     "sap/ui/model/Filter",
-    "sap/ui/model/FilterOperator"
-], function (BaseController, JSONModel, formatter, Filter, FilterOperator) {
+    "sap/ui/model/FilterOperator",
+    "sap/m/TablePersoController",
+    "./DemoPersoService"
+], function (BaseController, JSONModel, formatter, Filter, FilterOperator, TablePersoController, DemoPersoService) {
     "use strict";
 
     return BaseController.extend("tablepersonalize.controller.Worklist", {
@@ -34,7 +36,20 @@ sap.ui.define([
             });
             this.setModel(oViewModel, "worklistView");
 
+            // init and activate Table Personalization Control
+			this._oTPC = new TablePersoController({
+				table: this.byId("table"),
+				persoService: DemoPersoService
+			}).activate();
         },
+
+        onExit: function () {
+			this._oTPC.destroy();
+		},
+
+		onPersoButtonPressed: function (oEvent) {
+			this._oTPC.openDialog();
+		},
 
         /* =========================================================== */
         /* event handlers                                              */
