@@ -1,5 +1,6 @@
 {
   "configurations": [
+
     {
       "name": "project011",
       "cwd": "${workspaceFolder}/project011",
@@ -23,6 +24,31 @@
         "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/SAP-BAS/project011\"}",
         "FIORI_TOOLS_UI5_VERSION": "1.97.1",
         "FIORI_TOOLS_UI5_URI": "https://ui5.sap.com"
+      }
+    },
+    {
+      "name": "Start tablepersonalization",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "npx",
+      "cwd": "${workspaceFolder}/tablepersonalization",
+      "windows": {
+        "runtimeExecutable": "npx.cmd"
+      },
+      "runtimeArgs": [
+        "fiori",
+        "run"
+      ],
+      "args": [
+        "--open",
+        "'test/flpSandbox.html#tablepersonalization-display'"
+      ],
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen",
+      "port": 9229,
+      "env": {
+        "DEBUG": "--inspect",
+        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/SAP-BAS/tablepersonalization\"}"
       }
     },
     {
