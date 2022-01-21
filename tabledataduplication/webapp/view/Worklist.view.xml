@@ -1,0 +1,124 @@
+<mvc:View
+    controllerName="tablepersonalize.controller.Worklist"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:semantic="sap.f.semantic">
+
+    <semantic:SemanticPage
+        id="page"
+        headerPinnable="false"
+        toggleHeaderOnTitleClick="false">
+
+        <semantic:titleHeading>
+            <Title id="_IDGenTitle1"
+                text="{i18n>worklistTitle}"
+                level="H2"/>
+        </semantic:titleHeading>
+
+        <semantic:content>
+            <Table
+                id="table"
+                width="auto"
+                items="{
+                    path: '/Employees',
+                    sorter: {
+                        path: 'EmployeeID',
+                        descending: false
+                    }
+                }"
+                inset="true"
+                noDataText="{worklistView>/tableNoDataText}"
+                busyIndicatorDelay="{worklistView>/tableBusyDelay}"
+                growing="true"
+                growingScrollToLoad="true"
+                updateFinished=".onUpdateFinished">
+
+                <headerToolbar>
+                    <OverflowToolbar id="_IDGenOverflowToolbar1">
+                        <Title
+                            id="tableHeader"
+                            text="{worklistView>/worklistTableTitle}"
+                            level="H3"/>
+                        <ToolbarSpacer id="_IDGenToolbarSpacer1" />
+                        <Button id="_IDGenButton1" icon="sap-icon://action-settings" press="onPersoButtonPressed" />
+                    </OverflowToolbar>
+                </headerToolbar>
+
+                <columns>
+                    <Column id="_IDGenColumn1">
+                        <Text id="_IDGenText11" text="Employee ID"/>
+                    </Column>
+                    <Column id="_IDGenColumn2">
+                        <Text id="_IDGenText12" text="Title of Courtesy"/>
+                    </Column>                    
+                    <Column id="_IDGenColumn3">
+                        <Text id="_IDGenText13" text="FirstName"/>
+                    </Column>
+                    <Column id="_IDGenColumn4">
+                        <Text id="_IDGenText14" text="LastName"/>
+                    </Column>
+                    <Column id="_IDGenColumn5">
+                        <Text id="_IDGenText15" text="Title"/>
+                    </Column>                    
+                    <Column id="_IDGenColumn6">
+                        <Text id="_IDGenText16" text="Address"/>
+                    </Column>
+                    <Column id="_IDGenColumn7">
+                        <Text id="_IDGenText17" text="Region"/>
+                    </Column>              
+                    <Column id="_IDGenColumn8">
+                        <Text id="_IDGenText18" text="City"/>
+                    </Column>
+                    <Column id="_IDGenColumn9">
+                        <Text id="_IDGenText19" text="Postal Code"/>
+                    </Column>                    
+                    <Column id="_IDGenColumn10">
+                        <Text id="_IDGenText20" text="Country"/>
+                    </Column>
+                    <Column id="_IDGenColumn11">
+                        <Text id="_IDGenText21" text="Home Phone"/>
+                    </Column>                    
+                    <Column id="_IDGenColumn12">
+                        <Text id="_IDGenText22" text="Extension"/>
+                    </Column>
+                    <Column id="_IDGenColumn13">
+                        <Text id="_IDGenText23" text="BirthDate"/>
+                    </Column>
+                    <Column id="_IDGenColumn14">
+                        <Text id="_IDGenText24" text="HireDate"/>
+                    </Column>                          
+                </columns>
+
+                <items>
+                    <ColumnListItem id="_IDGenColumnListItem1"
+                        type="Navigation"
+                        press=".onPress">
+                        <cells>
+                            <ObjectIdentifier id="_IDGenObjectIdentifier1"
+                                title="{EmployeeID}"/>
+                            <Text id="_IDGenText8" text="{TitleOfCourtesy}"/>
+                            <Text id="_IDGenText1" text="{FirstName}"/>
+                            <Text id="_IDGenText2" text="{LastName}"/>
+                            <Text id="_IDGenText6" text="{Title}"/>
+                            <Text id="_IDGenText3" text="{Address}"/>
+                            <Text id="_IDGenText4" text="{Region}"/>
+                            <Text id="_IDGenText5" text="{City}"/>
+                            <Text id="_IDGenText10" text="{PostalCode}"/>
+                            <Text id="_IDGenText31" text="{Country}"/>
+                            <Text id="_IDGenText7" text="{HomePhone}"/>
+                            <Text id="_IDGenText9" text="{Extension}"/>
+                            <Text id="_IDGenText32" text="{BirthDate}"/>
+                            <Text id="_IDGenText33" text="{HireDate}"/>                            
+                        </cells>
+                    </ColumnListItem>
+                </items>
+            </Table>
+        </semantic:content>
+
+        <semantic:sendEmailAction>
+            <semantic:SendEmailAction id="shareEmail" press=".onShareEmailPress"/>
+        </semantic:sendEmailAction>
+
+    </semantic:SemanticPage>
+
+</mvc:View>
